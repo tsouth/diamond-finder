@@ -1,0 +1,28 @@
+{
+  "certificate": "LG825678759",
+  "retrieved_at": "2026-10-12T10:09:29.256571+00:00",
+  "source_url": "https://dnyvsyhu34v1w.cloudfront.net/pdf/LG825678759.pdf",
+  "pdf_path": "evidence/certificates/LG825678759.pdf",
+  "sha256": "b3d11e99ddba1689b45adb76683746ae0730abdf9ab58ac1369690ca76e5e3a4",
+  "fields": {
+    "certificate": "LG825678759",
+    "cutting_style": "HEXAGONAL MODIFIED BRILLIANT",
+    "length_mm": 15.66,
+    "width_mm": 7.96,
+    "height_mm": 5.13,
+    "carat": 4.26,
+    "color": "E",
+    "clarity": "VVS1",
+    "table_pct": 62.0,
+    "depth_pct": 64.4,
+    "polish": "EXCELLENT",
+    "symmetry": "EXCELLENT",
+    "fluorescence": "NONE",
+    "inscription": "LG825678759",
+    "growth_method": "CHEMICAL VAPOR DEPOSITION (CVD)",
+    "report_date": "AUGUST 5, 2026"
+  },
+  "mismatches": [],
+  "missing_fields": [],
+  "validation_status": "validated"
+}
