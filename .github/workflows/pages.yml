@@ -31,10 +31,15 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      - name: Stage report as site index
+        run: |
+          mkdir _site
+          cp reports/diamond_report.html _site/index.html
+
       - name: Upload report
         uses: actions/upload-pages-artifact@v3
         with:
-          path: reports
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
