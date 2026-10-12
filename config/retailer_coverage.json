@@ -1,0 +1,13 @@
+[
+  {"retailer":"Aurelinne","integration":"collector","status":"active","last_checked_at":"2026-10-12","certificate_checks":{"LG825678759":"found"},"notes":"API inventory"},
+  {"retailer":"Mikado Diamonds","integration":"collector","status":"active","last_checked_at":"2026-10-12","certificate_checks":{"LG825678759":"found"},"notes":"Product inventory"},
+  {"retailer":"Stienhardt","integration":"collector","status":"active","last_checked_at":"2026-10-12","certificate_checks":{"LG825678759":"not_found"},"notes":"Inventory searched; exact certificate not found"},
+  {"retailer":"Calavera","integration":"collector","status":"active","last_checked_at":"2026-10-12","certificate_checks":{"LG825678759":"not_found"},"notes":"Inventory searched; exact certificate not found"},
+  {"retailer":"Ritani","integration":"exact-certificate discovery","status":"manual","last_checked_at":"2026-10-12","certificate_checks":{"LG825678759":"found"},"notes":"Exact certificate found; live checkout pending"},
+  {"retailer":"Rare Carat","integration":"exact-certificate discovery","status":"manual","last_checked_at":"2026-10-12","certificate_checks":{"LG825678759":"not_found"},"notes":"No indexed exact match found"},
+  {"retailer":"Loose Grown Diamond","integration":"archived","status":"excluded","last_checked_at":"2026-10-12","certificate_checks":{"LG825678759":"found_archived"},"notes":"Historical source only; active collection intentionally disabled"},
+  {"retailer":"Adiamor","integration":"none","status":"not searched","last_checked_at":"","notes":"Candidate for exact-certificate discovery"},
+  {"retailer":"Brilliance","integration":"none","status":"not searched","last_checked_at":"","notes":"Candidate for exact-certificate discovery"},
+  {"retailer":"With Clarity","integration":"none","status":"not searched","last_checked_at":"","notes":"Candidate for exact-certificate discovery"},
+  {"retailer":"Friendly Diamonds","integration":"none","status":"not searched","last_checked_at":"","notes":"Candidate for exact-certificate discovery"}
+]

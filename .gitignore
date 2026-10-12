@@ -1,0 +1,13 @@
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
+# Generated latest-state reports and inventory; immutable audit runs may be retained separately.
+reports/*
+!reports/diamond_report.html
+data/current/
+data/raw/
+data/runs/
+data/evidence/**/*.pdf
+archive/**/responses/
+archive/**/*.csv

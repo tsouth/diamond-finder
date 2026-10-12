@@ -1,0 +1,39 @@
+[
+  {
+    "retailer": "Aurelinne",
+    "return_window_days": "",
+    "loose_stone_returnable": "",
+    "restocking_fee": "",
+    "custom_setting_exclusions": "",
+    "insured_shipping": "",
+    "cancellation_terms": "",
+    "payment_protection": "",
+    "policy_url": "",
+    "return_policy_verified_at": "",
+    "notes": "Obtain written terms before checkout."
+  },
+  {
+    "retailer": "Mikado Diamonds",
+    "return_window_days": "",
+    "loose_stone_returnable": "",
+    "restocking_fee": "",
+    "custom_setting_exclusions": "",
+    "insured_shipping": "",
+    "cancellation_terms": "",
+    "payment_protection": "",
+    "policy_url": "",
+    "return_policy_verified_at": ""
+  },
+  {
+    "retailer": "Ritani",
+    "return_window_days": "",
+    "loose_stone_returnable": "",
+    "restocking_fee": "",
+    "custom_setting_exclusions": "",
+    "insured_shipping": "",
+    "cancellation_terms": "",
+    "payment_protection": "",
+    "policy_url": "",
+    "return_policy_verified_at": ""
+  }
+]
