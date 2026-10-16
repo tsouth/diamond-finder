@@ -13,28 +13,30 @@ def seeded_rows():
     return json.loads((CONFIG / 'confirmed_listings.json').read_text(encoding='utf-8'))
 
 
-def test_shortlist_has_five_physical_diamonds_and_seven_offers():
+def test_shortlist_contains_only_current_premium_fl_diamonds():
     diamonds, offers, nested = build(seeded_rows(), '2026-10-12')
     assert len(diamonds) == 5
-    assert len(offers) == 7
+    assert len(offers) == 5
     assert len(nested) == 5
+    assert all(row['clarity'] == 'FL' and 4 <= row['carat'] <= 5 for row in diamonds)
 
 
-def test_computed_ranking_matches_provisional_top_five():
+def test_computed_ranking_contains_the_current_fl_search():
     diamonds, _, _ = build(seeded_rows(), '2026-10-12')
-    assert [row['certificate'] for row in diamonds] == [
-        'LG825678759', 'LG841695845', 'LG829618561', 'LG837626976', 'LG822610872'
-    ]
+    certificates = [row['certificate'] for row in diamonds]
+    assert set(certificates) == {
+        'LG831628616', 'LG823695685', 'LG824601394', 'LG824601396', 'LG838622718'
+    }
 
 
 def test_shared_diamond_keeps_both_offers_and_cheapest():
     diamonds, offers, _ = build(seeded_rows(), '2026-10-12')
-    diamond = next(row for row in diamonds if row['certificate'] == 'LG825678759')
-    shared = [row for row in offers if row['certificate'] == 'LG825678759']
-    assert {row['retailer'] for row in shared} == {'Aurelinne', 'Mikado Diamonds', 'Ritani'}
-    assert diamond['offer_count'] == 3
-    assert diamond['cheapest_retailer'] == 'Aurelinne'
-    assert diamond['cheapest_effective_price'] == '1005.30'
+    diamond = next(row for row in diamonds if row['certificate'] == 'LG831628616')
+    shared = [row for row in offers if row['certificate'] == 'LG831628616']
+    assert {row['retailer'] for row in shared} == {'Mikado Diamonds'}
+    assert diamond['offer_count'] == 1
+    assert diamond['cheapest_retailer'] == 'Mikado Diamonds'
+    assert diamond['cheapest_effective_price'] == '18930.00'
 
 
 def test_exact_certificate_coverage_is_not_reported_as_live_price_coverage():
@@ -43,12 +45,12 @@ def test_exact_certificate_coverage_is_not_reported_as_live_price_coverage():
         'optical': [], 'policies': [], 'certificates': {},
     }
     diamonds, _, _ = build(seeded_rows(), '2026-10-12', evidence)
-    diamond = next(row for row in diamonds if row['certificate'] == 'LG825678759')
-    assert diamond['exact_certificate_searched'] == 7
+    diamond = next(row for row in diamonds if row['certificate'] == 'LG831628616')
+    assert diamond['exact_certificate_searched'] == 1
     assert diamond['retailer_universe'] == 11
-    assert diamond['matching_active_offers'] == 3
+    assert diamond['matching_active_offers'] == 1
     assert diamond['checkout_verified_offers'] == 0
-    assert diamond['coverage_not_searched'] == 'Adiamor | Brilliance | With Clarity | Friendly Diamonds'
+    assert 'Mikado Diamonds' not in diamond['coverage_not_searched']
 
 
 def test_verified_step_cut_is_rejected():

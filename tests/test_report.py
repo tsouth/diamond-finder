@@ -19,6 +19,8 @@ def test_report_renders_sortable_diamond_and_offer():
     assert 'FALL10' in page
     assert 'id="sort"' in page
     assert 'How the rankings are calculated' in page
-    assert 'Why this diamond is ranked #1' in page
+    assert 'View this stone and compare 1 offers' in page
+    assert '<h3>IGI report</h3>' not in page
+    assert '<h3>Retailers checked</h3>' not in page
     assert 'Diamond score' in page and 'Value score' in page
     assert 'Neither score predicts brilliance' in page

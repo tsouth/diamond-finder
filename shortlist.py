@@ -184,13 +184,8 @@ def main():
         updates = {'price_usd': check['price'], 'observed_at': check['checked_at'][:10],
                    'last_checked_at': check['checked_at'][:10], 'availability': 'available'} if check else {}
         updated_rows.append({**row, **updates})
-    for key, check in latest.items():
-        if key not in existing:
-            updated_rows.append({'certificate':key[0], 'retailer':key[1], 'price_usd':check['price'],
-                                 'currency':check.get('currency','USD'), 'observed_at':check['checked_at'][:10],
-                                 'last_checked_at':check['checked_at'][:10], 'availability':'available',
-                                 'product_url':check.get('product_url') or check.get('query_url',''),
-                                 'verification':'Exact-certificate live vendor lookup'})
+    # Price checks may update active stones, but must not resurrect diamonds that
+    # have deliberately been removed from the active shortlist.
     rows = updated_rows
     certificates = {}
     if CERTIFICATES.exists():
